@@ -29,23 +29,23 @@
             <button onclick="calc()">計算</button>
             <div id="result" class="alert alert-info mt-3"></div>
         </div>
-        <script>
-            const calc = () => {
-                const x = parseFloat(document.getElementById('x').value);
-                const y = parseFloat(document.getElementById('y').value);
-                const x4 = x * (1 - y / 100);
-                const x5 = x * 1.1;
-                const x6 = x4 * 1.1;
-                const x7 = x - x4;
-                document.getElementById('result').innerHTML = 
-                    `<p>元値＝　${x}　円</p>
-                     <p>割引率＝　${y}　％</p>
-                     <p>元値＋消費税＝　${x5}　円</p>
-                     <p>値引き後＝　${x4}　円</p>
-                     <p>値引き後＋消費税＝　${x6}　円</p>
-                     <p>値引き金額＝　${x7}　円</p>`;
-            }
-        </script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     </body>
+    <script>
+        const calc = () => {
+            const x = parseFloat(document.getElementById('x').value);
+            const y = parseFloat(document.getElementById('y').value);
+            const x4 = x * (1 - y / 100);
+            const x5 = x * 1.1;
+            const x6 = x4 * 1.1;
+            const x7 = x - x4;
+            document.getElementById('result').innerHTML = 
+                `<p>元値＝　${x}　円</p>
+                 <p>割引率＝　${y}　％</p>
+                 <p>元値＋消費税＝　${x5}　円</p>
+                 <p>値引き後＝　${x4}　円</p>
+                 <p>値引き後＋消費税＝　${x6}　円</p>
+                 <p>値引き金額＝　${x7}　円</p>`;
+        }
+    </script>
 </html>
