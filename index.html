@@ -4,50 +4,50 @@
         <meta charset="utf-8">
         <title>消費税込み割引元値計算</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin-top: 200px;
+            }
+            .input-field {
+                margin-bottom: 10px;
+            }
+            #result p {
+                margin: 0 0 10px;
+            }
+        </style>
     </head>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin-top: 200px; /* ここで上部マージンを設定します */
-        }
-        .input-field {
-            margin-bottom: 10px;
-        }
-        #result p {
-            margin: 0 0 10px;
-        }
-    </style>
     <body>
         <h1>消費税込み割引元値計算</h1>
         <div class="container">
             <div class="input-field">
-                <label for="x">元値:</label>
-                <input type="number" id="x" name="x">
+                <label for="originalPrice">元値:</label>
+                <input type="number" id="originalPrice" name="originalPrice">
             </div>
             <div class="input-field">
-                <label for="y">割引率:</label>
-                <input type="number" id="y" name="y">
+                <label for="discountRate">割引率:</label>
+                <input type="number" id="discountRate" name="discountRate">
             </div>
-            <button onclick="calc()">計算</button>
+            <button onclick="calculate()">計算</button>
             <div id="result" class="alert alert-info mt-3"></div>
         </div>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     </body>
     <script>
-        const calc = () => {
-            const x = parseFloat(document.getElementById('x').value);
-            const y = parseFloat(document.getElementById('y').value);
-            const x4 = x * (1 - y / 100);
-            const x5 = x * 1.1;
-            const x6 = x4 * 1.1;
-            const x7 = x - x4;
+        const calculate = () => {
+            const originalPrice = parseFloat(document.getElementById('originalPrice').value);
+            const discountRate = parseFloat(document.getElementById('discountRate').value);
+            const discountedPrice = originalPrice * (1 - discountRate / 100);
+            const originalPriceWithTax = originalPrice * 1.1;
+            const discountedPriceWithTax = discountedPrice * 1.1;
+            const discountAmount = originalPrice - discountedPrice;
             document.getElementById('result').innerHTML = 
-                `<p>元値＝　${x}　円</p>
-                 <p>割引率＝　${y}　％</p>
-                 <p>元値＋消費税＝　${x5}　円</p>
-                 <p>値引き後＝　${x4}　円</p>
-                 <p>値引き後＋消費税＝　${x6}　円</p>
-                 <p>値引き金額＝　${x7}　円</p>`;
+                `<p>元値＝　${originalPrice}　円</p>
+                 <p>割引率＝　${discountRate}　％</p>
+                 <p>元値＋消費税＝　${originalPriceWithTax}　円</p>
+                 <p>値引き後＝　${discountedPrice}　円</p>
+                 <p>値引き後＋消費税＝　${discountedPriceWithTax}　円</p>
+                 <p>値引き金額＝　${discountAmount}　円</p>`;
         }
     </script>
 </html>
