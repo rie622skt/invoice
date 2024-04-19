@@ -18,18 +18,26 @@
         </style>
     </head>
     <body>
-        <h1>消費税込み割引元値計算</h1>
         <div class="container">
-            <div class="input-field">
-                <label for="originalPrice">元値:</label>
-                <input type="number" id="originalPrice" name="originalPrice">
+            <div class="row">
+                <div class="col">
+                    <h1>消費税込み割引元値計算</h1>
+                </div>
             </div>
-            <div class="input-field">
-                <label for="discountRate">割引率:</label>
-                <input type="number" id="discountRate" name="discountRate">
+            <div class="row">
+                <div class="col">
+                    <div class="input-field">
+                        <label for="originalPrice">元値:</label>
+                        <input type="number" id="originalPrice" name="originalPrice">
+                    </div>
+                    <div class="input-field">
+                        <label for="discountRate">割引率:</label>
+                        <input type="number" id="discountRate" name="discountRate">
+                    </div>
+                    <button onclick="calculate()">計算</button>
+                    <div id="result" class="alert alert-info mt-3"></div>
+                </div>
             </div>
-            <button onclick="calculate()">計算</button>
-            <div id="result" class="alert alert-info mt-3"></div>
         </div>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     </body>
@@ -39,15 +47,7 @@
             const discountRate = parseFloat(document.getElementById('discountRate').value);
             const discountedPrice = originalPrice * (1 - discountRate / 100);
             const originalPriceWithTax = originalPrice * 1.1;
-            const discountedPriceWithTax = discountedPrice * 1.1;
-            const discountAmount = originalPrice - discountedPrice;
-            document.getElementById('result').innerHTML = 
-                `<p>元値＝　${originalPrice}　円</p>
-                 <p>割引率＝　${discountRate}　％</p>
-                 <p>元値＋消費税＝　${originalPriceWithTax}　円</p>
-                 <p>値引き後＝　${discountedPrice}　円</p>
-                 <p>値引き後＋消費税＝　${discountedPriceWithTax}　円</p>
-                 <p>値引き金額＝　${discountAmount}　円</p>`;
+            // ...
         }
     </script>
 </html>
