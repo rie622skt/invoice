@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>消費税込み割引元値計算</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
         <style>
             body {
                 font-family: Arial, sans-serif;
@@ -14,38 +15,29 @@
                 margin: 0 0 10px;
             }
         </style>
+    </head>
+    <body>
+        <div class="container">
+            <!-- Your form goes here -->
+            <div id="result" class="alert alert-info mt-3"></div>
+        </div>
         <script>
-            function calc() {
-                var x = parseFloat(document.getElementById('x').value);
-                var y = parseFloat(document.getElementById('y').value);
-                var x4 = x * (1 - y / 100);
-                var x5 = x * 1.1;
-                var x6 = x4 * 1.1;
-                var x7 = x - x4;
+            const calc = () => {
+                const x = parseFloat(document.getElementById('x').value);
+                const y = parseFloat(document.getElementById('y').value);
+                const x4 = x * (1 - y / 100);
+                const x5 = x * 1.1;
+                const x6 = x4 * 1.1;
+                const x7 = x - x4;
                 document.getElementById('result').innerHTML = 
-                    "<p>元値＝　" + x + "　円</p>" +
-                    "<p>割引率＝　" + y + "　％</p>" +
-                    "<p>元値＋消費税＝　" + x5 + "　円</p>" +
-                    "<p>値引き後＝　" + x4 + "　円</p>" +
-                    "<p>値引き後＋消費税＝　" + x6 + "　円</p>" +
-                    "<p>値引き金額＝　" + x7 + "　円</p>";
+                    `<p>元値＝　${x}　円</p>
+                     <p>割引率＝　${y}　％</p>
+                     <p>元値＋消費税＝　${x5}　円</p>
+                     <p>値引き後＝　${x4}　円</p>
+                     <p>値引き後＋消費税＝　${x6}　円</p>
+                     <p>値引き金額＝　${x7}　円</p>`;
             }
         </script>
-    </head>
-    
-    <body>
-    
-    <h1>求めたい金額と何割引きかを入力してください</h1>
-    <div class="input-field">
-        <label for="x">元値（円）:</label>
-        <input type="number" id="x" placeholder="元値を入力">
-    </div>
-    <div class="input-field">
-        <label for="y">割引率（％）:</label>
-        <input type="number" id="y" placeholder="割引率を入力">
-    </div>
-    <button onclick="calc()">計算</button>
-    <div id="result"></div>
-    
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     </body>
 </html>
