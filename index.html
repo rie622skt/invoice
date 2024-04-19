@@ -18,7 +18,15 @@
     </head>
     <body>
         <div class="container">
-            <!-- Your form goes here -->
+            <div class="input-field">
+                <label for="x">元値:</label>
+                <input type="number" id="x" name="x">
+            </div>
+            <div class="input-field">
+                <label for="y">割引率:</label>
+                <input type="number" id="y" name="y">
+            </div>
+            <button onclick="calc()">計算</button>
             <div id="result" class="alert alert-info mt-3"></div>
         </div>
         <script>
