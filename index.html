@@ -45,13 +45,13 @@
         const calc = () => {
             const originalPrice = parseFloat(document.getElementById('originalPrice').value);
             const discountRate = parseFloat(document.getElementById('discountRate').value);
-            const discountedPrice = originalPrice * (1 - discountRate / 100);
-            const originalPriceWithTax = originalPrice * 1.1;
-            const discountedPriceWithTax = discountedPrice * 1.1;
-            const discountAmount = originalPrice - discountedPrice;
+            const discountedPrice = Math.round(originalPrice * (1 - discountRate / 100));
+            const originalPriceWithTax = Math.round(originalPrice * 1.1);
+            const discountedPriceWithTax = Math.round(discountedPrice * 1.1);
+            const discountAmount = Math.round(originalPrice - discountedPrice);
             document.getElementById('result').innerHTML = 
-                `<p>元値＝　${originalPrice}　円</p>
-                 <p>割引率＝　${discountRate}　％</p>
+                `<p>元値＝　${Math.round(originalPrice)}　円</p>
+                 <p>割引率＝　${Math.round(discountRate)}　％</p>
                  <p>元値＋消費税＝　${originalPriceWithTax}　円</p>
                  <p>値引き後＝　${discountedPrice}　円</p>
                  <p>値引き後＋消費税＝　${discountedPriceWithTax}　円</p>
